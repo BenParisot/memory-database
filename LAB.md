@@ -21,7 +21,7 @@ There should be relevant CRUD methods created to use
 the database. These methods are detailed below.
 
 This is a solo assignment. Try and do these from
-scratch.
+scratch. LIES
 
 **You must use TDD and good commits for this lab**
 
