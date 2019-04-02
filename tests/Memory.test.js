@@ -36,5 +36,21 @@ describe('Memory Database', () => {
       _id: expect.any(String)
     };
     expect(memory.create(object)).toEqual(expected);
+    console.log(memory.store);
+  });
+  it('finds object by id', () => {
+    const input = 
+      {
+        name:'Vanessa',
+        title:'ceo'
+      };
+    const object = memory.create(input);
+    const uid = object['_id'];
+    const result = memory.findById(uid);
+    expect(result).toEqual(object);
+  });
+  it('returns null on invalid id', () => {
+    const result = memory.findById('jkdjkjdfag');
+    expect(result).toEqual(null);
   });
 });
