@@ -1,7 +1,10 @@
 const MemoryDatabase = require('../lib/Memory');
-const memory = new MemoryDatabase();
 
 describe('Memory Database', () => {
+  let memory = null;
+  beforeEach(() => {
+    memory = new MemoryDatabase();
+  });
   it('creates an empty store object', () => {
     expect(memory.store).toEqual({});
   });
