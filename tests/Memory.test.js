@@ -6,6 +6,6 @@ describe('Memory Database', () => {
     expect(memory.store).toEqual({});
   });
   it('creates a unique identifier for the object', () => {
-    expect(memory.create()).toEqual(expect.any(String));
+    expect(memory.create()._id).toEqual(expect.any(String));
   });
 });
