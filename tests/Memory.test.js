@@ -96,4 +96,13 @@ describe('Memory Database', () => {
     expect(memory.findById(object._id)).toEqual(null);
     expect(memory.store).toEqual({});
   });
+  it('deletes all objects in memory store', () => {
+    const input = {
+      name: 'Ruth',
+      title: 'wizard'
+    };
+    memory.create(input);
+    memory.drop();
+    expect(memory.store).toEqual({});
+  });
 });
