@@ -53,4 +53,21 @@ describe('Memory Database', () => {
     const result = memory.findById('jkdjkjdfag');
     expect(result).toEqual(null);
   });
+  it('returns what is stored in store', () => {
+    const input = 
+    {
+      name:'Vanessa',
+      title:'ceo'
+    };
+    const input2 = 
+    {
+      name:'Banessa',
+      title:'cfo'
+    };
+    const object = memory.create(input);
+    const object2 = memory.create(input2);
+    const result = memory.find();
+    expect(result).toEqual([object, object2]);
+    console.log(result);
+  });
 });
