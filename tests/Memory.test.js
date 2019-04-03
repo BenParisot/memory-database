@@ -68,6 +68,32 @@ describe('Memory Database', () => {
     const object2 = memory.create(input2);
     const result = memory.find();
     expect(result).toEqual([object, object2]);
-    console.log(result);
+  });
+  it('updates a user by id', () => {
+    const oldInfo = {
+      name: 'Ruth',
+      title: 'wizard'
+    };
+    const oldObject = memory.create(oldInfo);
+    const id = oldObject._id;
+    const newInfo = {
+      name: 'Fluth',
+      title: 'fllizzard'
+    };
+    expect(memory.findByIdAndUpdate(id, newInfo)).toEqual({
+      name: 'Fluth',
+      title: 'fllizzard',
+      _id: id
+    });
+  });
+  it('deletes object from store by id and returns value of deleted object', () => {
+    const input = {
+      name: 'Ruth',
+      title: 'wizard'
+    };
+    const object = memory.create(input);
+    expect(memory.deleteById(object._id)).toEqual(object);  
+    expect(memory.findById(object._id)).toEqual(null);
+    expect(memory.store).toEqual({});
   });
 });
