@@ -36,7 +36,6 @@ describe('Memory Database', () => {
       _id: expect.any(String)
     };
     expect(memory.create(object)).toEqual(expected);
-    console.log(memory.store);
   });
   it('finds object by id', () => {
     const input = 
